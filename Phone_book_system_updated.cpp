@@ -64,7 +64,6 @@ void dlist::accept()
     char gmail[40];
     char name[30];
     char birthday[30];
-    char ans;
     cout << "\n\tPlease enter the details in order to add new contact" << endl;
     cout << "\tName: ";
     cin >> name;
@@ -141,7 +140,14 @@ void dlist::deletecontact(char s[20])
         else
         {
             if (ptr->next != NULL)
+            {
                 ptr = ptr->next;
+            }
+            else
+            {
+                cout << "Name has not been found!\n";
+                break;
+            }
         }
     }
 
@@ -275,8 +281,6 @@ int main()
     char gmail[20];
     char birthday[10];
     dlist d1;
-    char ans;
-    int ch, a;
     int usersChoice;
     for (;;)
     {
@@ -302,7 +306,6 @@ int main()
         {
             cout << "\nEnter the name you want to delete from your phonebook\n";
             cin >> name;
-            cout << "Name has been entered \n";
             d1.deletecontact(name);
         }
         else if (usersChoice == 4)
